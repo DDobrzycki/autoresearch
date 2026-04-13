@@ -17,14 +17,14 @@ from scipy.optimize import linear_sum_assignment
 class MatcherConfig:
     """Hyperparameters controlling cost construction and assignment behavior."""
 
-    iou_weight: float = 0.65
-    center_weight: float = 0.20
-    size_weight: float = 0.10
-    score_weight: float = 0.05
-    unmatched_cost: float = 0.85
-    min_iou_for_match: float = 0.01
+    iou_weight: float = 0.7208003261911645
+    center_weight: float = 0.1654450067360511
+    size_weight: float = 0.028696543417234266
+    score_weight: float = 0.08505812365555007
+    unmatched_cost: float = 0.568929743995518
+    min_iou_for_match: float = 0.06337313291259677
     min_detection_score: float = 0.0
-    low_score_penalty: float = 0.20
+    low_score_penalty: float = 0.34809839295390094
     class_aware: bool = False
     class_mismatch_penalty: float = 0.50
     class_mismatch_mode: str = "soft"  # "soft" or "hard"
