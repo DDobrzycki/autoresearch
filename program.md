@@ -74,10 +74,24 @@ Parse and record holdout `score` and runtime the same way.
 
 ## Research guidance
 
-- Prefer simple, interpretable matcher edits over complex heuristics.
+- Prefer simple, interpretable matcher edits first, then progressively test richer cost designs.
 - Keep behavior deterministic.
 - Handle edge cases robustly:
   - no annotations
   - no detections
   - invalid or duplicated IDs
 - Treat evaluator and golden benchmark as fixed infrastructure.
+- Explore both:
+  1) hyperparameter tuning (weights, gates, thresholds), and
+  2) cost-function design changes (add/remove/reshape cost terms).
+- Allowed cost-term experiments include, for example:
+  - IoU/GIoU variants
+  - center distance / normalized geometry penalties
+  - scale/aspect-ratio consistency
+  - confidence-aware priors
+  - appearance terms (e.g., color histogram similarity, Bhattacharyya distance)
+- Any new cost term must:
+  - be ablated (on/off or weight=0 vs >0),
+  - report runtime impact,
+  - improve score on search split before being kept,
+  - be validated periodically on holdout to avoid overfitting.
